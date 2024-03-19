@@ -15,6 +15,6 @@ class UserController extends Controller
             $post->touch();
         }
 
-        return view("logged_in", compact('posts'));
+        return view("partials.logged_in", compact('posts'));
     }
 }

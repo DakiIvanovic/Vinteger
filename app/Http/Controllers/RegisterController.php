@@ -10,7 +10,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('register');
+        return view('partials.register');
     }
 
     public function store(Request $request)

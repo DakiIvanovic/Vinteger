@@ -4,26 +4,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class AddUserIdToUploadPostsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
-{
-    Schema::table('upload_posts', function (Blueprint $table) {
-        $table->foreignId('user_id')->constrained()->onDelete('cascade')->after('description'); // Dodajemo kolonu user_id nakon kolone description
-    });
-}
-
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
     {
         Schema::table('upload_posts', function (Blueprint $table) {
-            //
+            if (!Schema::hasColumn('upload_posts', 'user_id')) {
+                $table->unsignedBigInteger('user_id');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            }
         });
     }
-};
+
+    public function down()
+    {
+        Schema::table('upload_posts', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
+    }
+}

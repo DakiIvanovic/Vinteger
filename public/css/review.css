@@ -1,0 +1,163 @@
+.container {
+    padding: 50px 0;
+}
+
+.profile-info h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.profile-info form {
+    max-width: 400px;
+}
+
+.profile-info .form-group {
+    margin-bottom: 25px;
+}
+
+.profile-info label {
+    font-weight: bold;
+}
+
+.profile-info input[type="text"],
+.profile-info input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+    font-size: 16px;
+}
+
+.profile-info input[type="text"]:focus,
+.profile-info input[type="email"]:focus {
+    border-color: #6c63ff;
+}
+
+.profile-info {
+    opacity: 0; 
+    animation: fadeInProfileInfo 0.5s ease-in-out 1s forwards; 
+}
+
+.posts {
+    opacity: 0; 
+    animation: fadeInPosts 0.5s ease-in-out forwards;
+}
+
+.profile-info a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6c63ff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.profile-info a:hover {
+    color: #403bff;
+}
+
+.posts h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.posts .post {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.posts .post:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.posts .post h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.posts .post:hover h3 {
+    color: #6c63ff;
+}
+
+.posts .post img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.posts .post:hover img {
+    transform: scale(1.05);
+}
+
+.posts .post p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.posts .post .posted-at {
+    font-style: italic;
+    color: #888888;
+}
+
+.posts .post .delete-form {
+    display: inline;
+}
+
+.posts .post .delete-btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.posts .post .delete-btn:hover {
+    background-color: #ff4757;
+}
+
+.new-badge {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    right: -18px;
+    transform: rotate(45deg);
+}
+
+@keyframes fadeInPosts {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInProfileInfo {
+    from {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

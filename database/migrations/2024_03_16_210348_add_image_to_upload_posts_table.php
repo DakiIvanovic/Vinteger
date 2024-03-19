@@ -4,25 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class AddImageToUploadPostsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::table('upload_posts', function (Blueprint $table) {
-            $table->string('image')->after('user_id'); // Dodajemo kolonu image nakon kolone user_id
+            if (!Schema::hasColumn('upload_posts', 'image')) {
+                $table->string('image')->nullable(); 
+            }
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::table('upload_posts', function (Blueprint $table) {
-            //
+            $table->dropColumn('image');
         });
     }
-};
+}

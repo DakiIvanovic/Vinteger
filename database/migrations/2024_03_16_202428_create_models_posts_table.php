@@ -13,7 +13,7 @@ class CreateModelsPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('models_posts', function (Blueprint $table) { // Promenjeni naziv tabele
+        Schema::create('models_posts', function (Blueprint $table) { 
             $table->id();
             $table->string('title');
             $table->string('image');
@@ -30,6 +30,6 @@ class CreateModelsPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('models_posts'); // Promenjeni naziv tabele
+        Schema::dropIfExists('models_posts'); 
     }
 }

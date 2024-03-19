@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -24,11 +25,12 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/logged_in', [UserController::class, 'userLogged'])->name('logged_in');
 Route::post('/logged_in', [UserController::class, 'userNameShow'])->name('userNameShow');
-
+Route::post('/user_name', [UserController::class, 'userNameShow'])->name('userNameShow');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::post('/logout', [LogoutController::class, 'logout']);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -45,8 +47,6 @@ Route::get('/add_post', [PostController::class, 'create'])->name('add_post_form'
 Route::post('/store_post', [PostController::class, 'store'])->name('store_post');
 Route::post('/add_post', [PostController::class, 'store'])->name('add_post');
 Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('delete_post');
-
-Route::post('/user_name', [UserController::class, 'userNameShow'])->name('userNameShow');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

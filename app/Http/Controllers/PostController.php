@@ -7,10 +7,9 @@ use App\Models\UploadPost;
 
 class PostController extends Controller
 {
-    // Metod za prikazivanje forme za dodavanje posta
     public function create()
     {
-        return view('add_post_form');
+        return view('partials.add_post_form');
     }
 
     public function store(Request $request)
