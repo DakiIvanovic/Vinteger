@@ -16,7 +16,6 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            // Vratite se na prethodni tip kolone ako je potrebno
             $table->string('profile_pictures')->nullable()->change();
         });
     }

@@ -58,8 +58,8 @@ form * {
     letter-spacing: 0.5px;
     outline: none;
     border: none;
-    opacity: 0; /* Initially hide all elements */
-    animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
+    opacity: 0; 
+    animation: fadeIn 0.5s forwards; 
 }
 
 form h3 {
@@ -73,7 +73,7 @@ label,
 input,
 button,
 .social div {
-    animation-delay: 0.5s; /* Delay the animation */
+    animation-delay: 0.5s; 
 }
 
 @keyframes fadeIn {
