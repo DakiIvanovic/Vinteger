@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Route::redirect('/', '/register');
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -20,6 +21,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
+Route::get('/logged_in', [UserController::class, 'showLoggedInPage'])->name('logged_in');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -51,3 +53,8 @@ Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('delete_po
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.review');
+
+
+Route::get('/messages', 'MessageController@index')->name('messages.index');
+Route::get('/messages/{user}', 'MessageController@show')->name('messages.show');
+Route::post('/messages/{user}', 'MessageController@store')->name('messages.store');

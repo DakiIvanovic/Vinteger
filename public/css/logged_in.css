@@ -49,7 +49,7 @@ hr {
 
 img {
     max-width: 100%;
-    height: auto;
+    height: 100px;
     margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -65,12 +65,14 @@ img:hover {
     font-style: italic;
     color: #666666;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .special-div {
     background-color: #f0f0f0;
     padding: 30px;
+    height: 180px;
+    width: 400px;
     border-radius: 20px;
     margin-top: 40px;
 }
@@ -79,8 +81,13 @@ img:hover {
     margin: 15px 0;
     color: #333333;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 19px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.comments{
+    margin-top: 10px;
+    color: black;
 }
 
 @keyframes fadeIn {
@@ -126,6 +133,19 @@ hr,
     to {
         transform: scale(1);
     }
+}
+
+.comment_button{
+    width: 150px;
+    border-radius: 10px;
+    background-color: #5e5d5d;
+    color: white;
+    transition: 1s;
+}
+
+.comment_button:hover{
+    background-color: #333333;
+    transition: 1s;
 }
 
 img {

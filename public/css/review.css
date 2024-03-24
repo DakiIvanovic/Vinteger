@@ -44,6 +44,11 @@
     animation: fadeInPosts 0.5s ease-in-out forwards;
 }
 
+.curent_picture{
+    width: 150px;
+    height: 110px;
+}
+
 .profile-info a {
     display: inline-block;
     margin-top: 10px;
@@ -60,6 +65,16 @@
 .posts h2 {
     font-size: 36px;
     margin-bottom: 30px;
+}
+
+.no_post{
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.no_post_href{
+    color: #403bff;
 }
 
 .posts .post {

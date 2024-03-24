@@ -17,4 +17,5 @@ class UserController extends Controller
 
         return view("partials.logged_in", compact('posts'));
     }
+
 }

@@ -58,7 +58,7 @@
         @if($user->profile_picture)
             <div class="form-group mt-2">
                 <label>Current Picture:</label><br>
-                <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="img-fluid img-preview">
+                <img class="current_picture" src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="img-fluid img-preview">
             </div>
         @endif
 
@@ -90,6 +90,8 @@
         <a href="{{ route('logged_in') }}" class="btn btn-secondary">Back</a>
     </form>
 </div>
+
+@include('partials.footer');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

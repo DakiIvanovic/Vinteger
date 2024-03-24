@@ -40,7 +40,7 @@
                     @if($user->profile_picture)
                     <div class="form-group mt-2">
                         <label>Current Picture:</label><br>
-                        <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="img-fluid"><br>
+                        <img class="curent_picture" src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="img-fluid"><br>
                         <a href="{{ route('profile.show') }}">Change profile picture</a>
                     </div>
                     @endif
@@ -51,37 +51,43 @@
         <div class="col-md-6">
             <div class="posts">
                 <h2>Your Posts</h2>
-                <div class="row">
-                    @foreach ($posts->reverse() as $post) 
-                    <div class="col-md-4">
-                        <div class="post">
-                            @php
-                                $postDate = \Carbon\Carbon::parse($post->created_at);
-                                $now = \Carbon\Carbon::now();
-                                $isNew = $postDate->diffInHours($now) < 1;
-                            @endphp
-                            @if ($isNew)
-                                <span class="new-badge">NEW</span>
-                            @endif
-                            <h3>{{ $post->title }}</h3>
-                            <img src="{{ Storage::url($post->image) }}" alt="Post Image">
-                            <p>{{ $post->description }}</p>
-                            <p class="posted-at">Posted at: {{ $post->created_at->format('d.m.Y H:i') }}</p>
-                            <form method="POST" action="{{ route('delete_post', ['id' => $post->id]) }}" class="delete-form">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="delete-btn">Delete</button>
-                            </form>
+                @if ($posts->isEmpty())
+                    <p class="no_post">You don't have any posts yet</p>
+                    <p class="no_post">Add new post -> <a class="no_post_href" href="{{ route('add_post') }}">Here</p></a>
+                @else
+                    <div class="row">
+                        @foreach ($posts->reverse() as $post) 
+                        <div class="col-md-4">
+                            <div class="post">
+                                @php
+                                    $postDate = \Carbon\Carbon::parse($post->created_at);
+                                    $now = \Carbon\Carbon::now();
+                                    $isNew = $postDate->diffInHours($now) < 1;
+                                @endphp
+                                @if ($isNew)
+                                    <span class="new-badge">NEW</span>
+                                @endif
+                                <h3>{{ $post->title }}</h3>
+                                <img src="{{ Storage::url($post->image) }}" alt="Post Image">
+                                <p>{{ $post->description }}</p>
+                                <p class="posted-at">Posted at: {{ $post->created_at->format('d.m.Y H:i') }}</p>
+                                <form method="POST" action="{{ route('delete_post', ['id' => $post->id]) }}" class="delete-form">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-btn">Delete</button>
+                                </form>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
-                </div>
+                @endif
             </div>
         </div>
     </div>
 </div>
 
-<!-- Bootstrap JS -->
+@include('partials.footer');
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

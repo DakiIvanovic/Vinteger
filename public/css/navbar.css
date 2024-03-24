@@ -38,8 +38,7 @@ body {
   width: 60px;
   overflow:hidden;
   background: #0009;
-  transition: width .05s linear;
-  -webkit-transition: width .05s linear;
+  transition: 1s;
   z-index: 10;
   padding-top: 10px;
 }
@@ -47,6 +46,7 @@ body {
 .main-menu:hover {
   width: 180px;
   overflow:visible;
+  transition: 1s;
 }
 
 .main-menu > ul > li {
